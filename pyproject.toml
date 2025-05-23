@@ -1,0 +1,11 @@
+[project]
+name = "blip-sdk-python"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "blip-sdk>=1.0.4",
+    "lime-python>=2.0.13",
+    "lime-transport-websocket>=1.0.9",
+]

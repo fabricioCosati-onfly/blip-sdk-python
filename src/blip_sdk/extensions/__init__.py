@@ -4,3 +4,17 @@ from .chat import ChatExtension
 from .artificial_intelligence import AIExtension
 from .analytics import AnalyticsExtension
 from .contexts import ContextsExtension
+from .bucket import BucketExtension
+from .contacts import ContactsExtension
+from .resource import ResourceExtension
+from .event_tracker import EventTrackerExtension
+from .helpdesk import HelpDeskExtension
+from .broadcast import BroadcastExtension
+from .directory import DirectoryExtension
+from .profile import ProfileExtension
+from .contacts_journey import ContactsJourneyExtension
+from .scheduler import SchedulerExtension
+from .threads import ThreadsExtension
+from .delegation import DelegationExtension
+from .builder import BuilderExtension
+from .tunnel import TunnelExtension

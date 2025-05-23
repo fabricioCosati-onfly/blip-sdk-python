@@ -1,13 +1,11 @@
 import asyncio
 import re
-
 from lime_python import Command, Identity, Message
 from lime_transport_websocket import WebSocketTransport
-
 from blip_sdk import ClientBuilder, Receiver
 
-IDENTIFIER = 'botnotificacaoworkchat'
-ACCESS_KEY = 'aGlhYmVFd3VWRThXV1hzNWJxYW0='
+IDENTIFIER = 'testechatbot217'
+ACCESS_KEY = 'NlVuMjJYRll2WVR3WkdkS2h2bmQ='
 CALCULUS_PATTERN = '^[0-9]+(\s)?(\/|\+|-|\*)(\s)?[0-9]+$'
 
 client = ClientBuilder() \
@@ -23,6 +21,7 @@ async def main_async():
     client.add_message_receiver(
         Receiver(message_predicate, message_processor_async)
     )
+    print('Application started. Press Ctrl + c to stop.')
 
 
 def message_predicate(message: Message) -> bool:
@@ -78,24 +77,11 @@ def send_message_with_composing(
             'itemType': 'application/vnd.lime.container+json',
             'items': [
                 {
-                    'type': 'application/vnd.lime.chatstate+json',
-                    'value': {
-                        'state': 'composing'
-                    },
-                },
-                {
-                    'type': 'application/vnd.lime.chatstate+json',
-                    'value': {
-                        'state': 'paused'
-                    },
-                },
-                {
                     'type': message_type,
                     'value': message_content
                 }
             ]
         }))
-
 
 async def set_context_async(
     user_id: Identity,
@@ -151,7 +137,6 @@ def unexpected_error(user_id: Identity) -> None:
         )
     except:
         raise ValueError('An error ocurred while sending message')
-
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main_async())

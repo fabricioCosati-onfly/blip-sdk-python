@@ -8,8 +8,10 @@ from lime_python import (ClientChannel, Command, CommandMethod, Envelope,
                          Reason, ReasonCode, Session, SessionState, Transport)
 
 from .application import Application
-from .extensions import (AIExtension, AnalyticsExtension, ChatExtension,
-                         ContextsExtension, ExtensionBase, MediaExtension)
+from .extensions import (AIExtension, AnalyticsExtension, BucketExtension,
+                         ChatExtension, ContactsExtension, ContextsExtension,
+                         EventTrackerExtension, ExtensionBase, MediaExtension, 
+                         ResourceExtension)
 from .receiver import Receiver
 from .utilities import ClassUtilities
 
@@ -81,6 +83,30 @@ class Client:
         return self.__get_extension(
             ContextsExtension,
             self.application.domain
+        )
+        
+    @property
+    def bucket_extension(self) -> BucketExtension:  # noqa: D102
+        return self.__get_extension(
+            BucketExtension
+        )
+        
+    @property
+    def contacts_extension(self) -> ContactsExtension:  # noqa: D102
+        return self.__get_extension(
+            ContactsExtension
+        )
+        
+    @property
+    def resource_extension(self) -> ResourceExtension:  # noqa: D102
+        return self.__get_extension(
+            ResourceExtension
+        )
+        
+    @property
+    def event_tracker_extension(self) -> EventTrackerExtension:  # noqa: D102
+        return self.__get_extension(
+            EventTrackerExtension
         )
 
     @property
